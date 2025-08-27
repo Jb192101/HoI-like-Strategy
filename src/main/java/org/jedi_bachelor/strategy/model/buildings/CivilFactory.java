@@ -1,5 +1,7 @@
 package org.jedi_bachelor.strategy.model.buildings;
 
+import org.jedi_bachelor.strategy.model.buildings.types.TypeOfConsumerGoods;
+
 public class CivilFactory extends Building implements ITradingOfProduction {
     private final TypeOfConsumerGoods type;
 
@@ -11,6 +13,10 @@ public class CivilFactory extends Building implements ITradingOfProduction {
 
         this.currentHealth = 250;
         this.maxHealth = 250;
+
+        this.moneyToBuilding = 9000;
+        this.neededCountOfMachines = 250;
+        this.timeToBuilding = 7;
     }
 
     // Struct:
@@ -47,6 +53,7 @@ public class CivilFactory extends Building implements ITradingOfProduction {
         return "CivilFactory{" +
                 "isProductional=" + isProductional +
                 ", production=" + production +
+                ", type=" + type +
                 ", budget=" + budget +
                 ", maxHealth=" + maxHealth +
                 ", currentHealth=" + currentHealth +

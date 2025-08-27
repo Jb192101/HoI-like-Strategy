@@ -2,6 +2,8 @@ package org.jedi_bachelor.strategy.model.buildings;
 
 // It's state non-commercial organization, but it require a money to product
 
+import org.jedi_bachelor.strategy.model.buildings.types.TypeOfWeapon;
+
 public class MilitaryFactory extends Building {
     private final TypeOfWeapon type;
 
@@ -13,6 +15,10 @@ public class MilitaryFactory extends Building {
 
         this.currentHealth = 250;
         this.maxHealth = 250;
+
+        this.moneyToBuilding = 25000;
+        this.neededCountOfMachines = 270;
+        this.timeToBuilding = 7;
     }
 
     @Override

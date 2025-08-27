@@ -11,8 +11,14 @@ abstract public class Building implements IProductionalBuilding {
 
     protected int budget;
 
+    // Health
     protected int maxHealth;
     protected int currentHealth;
+
+    // Construction pay
+    protected int moneyToBuilding;
+    protected int timeToBuilding;
+    protected int neededCountOfMachines;
 
     public int getProduction() {
         return production;
@@ -35,5 +41,17 @@ abstract public class Building implements IProductionalBuilding {
 
     public void subsiding(int value) {
         this.budget += value;
+    }
+
+    public int getMoneyToBuilding() {
+        return moneyToBuilding;
+    }
+
+    public int getTimeToBuilding() {
+        return timeToBuilding;
+    }
+
+    public int getNeededCountOfMachines() {
+        return neededCountOfMachines;
     }
 }

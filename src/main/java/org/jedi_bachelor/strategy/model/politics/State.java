@@ -1,11 +1,11 @@
 package org.jedi_bachelor.strategy.model.politics;
 
 import org.jedi_bachelor.strategy.model.buildings.Building;
-import org.jedi_bachelor.strategy.model.buildings.BuildingFactory;
 import org.jedi_bachelor.strategy.model.effects.Features;
 import org.jedi_bachelor.strategy.model.effects.FeaturesEnum;
 import org.jedi_bachelor.strategy.model.focuses.NationalFocusTree;
 import org.jedi_bachelor.strategy.model.map.MapTell;
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -19,10 +19,11 @@ public class State {
     // Finances
     private int money;
 
+    // Material products
+    private Materials materials;
+
     // Taxes
-    //private float taxOnCivilFactories; // money += taxOnCivilFactories * newProduction
-    //private float taxOnFarms; // money += taxOnFarms * newProduction
-    private float taxOnCivils = 0.3f; // money += taxOnCivils * manpower
+    private float taxOnCivils = 0.1f; // money += taxOnCivils * manpower
     private int timerOfTakingTaxes = 0; // need to update after all day
 
     private Leader leader;
@@ -33,7 +34,6 @@ public class State {
 
     // Map
     private List<MapTell> territory;
-    private BuildingFactory buildingFactory = new BuildingFactory();
 
     public State(String name) {
         this.nameOfState = name;
@@ -64,8 +64,9 @@ public class State {
     public void setTerritory(List<MapTell> territory) {
         this.territory = territory;
         for(MapTell tell : territory) {
-            for(Building b : tell.getBuildingList()) {
-                b.setFeatures(this.features);
+            for (Building b : tell.getBuildingList()) {
+                if(b != null)
+                    b.setFeatures(this.features);
             }
         }
     }
@@ -76,10 +77,6 @@ public class State {
 
     public void takeTaxes() {
         addMoney((int) (getPeople() * this.taxOnCivils));
-    }
-
-    public BuildingFactory getBuildingFactory() {
-        return this.buildingFactory;
     }
 
     public String getNameOfState() {
@@ -117,5 +114,14 @@ public class State {
 
     public int getTimerOfTakingTaxes() {
         return timerOfTakingTaxes;
+    }
+
+    // Materials
+    public int getMachines() {
+        return this.materials.getMachines();
+    }
+
+    public void addMachines(int value) {
+        this.materials.addMachines(value);
     }
 }

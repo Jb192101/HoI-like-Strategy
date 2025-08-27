@@ -8,6 +8,10 @@ public class Farm extends Building implements ITradingOfProduction {
 
         this.currentHealth = 250;
         this.maxHealth = 250;
+
+        this.moneyToBuilding = 3000;
+        this.neededCountOfMachines = 50;
+        this.timeToBuilding = 2;
     }
 
     @Override

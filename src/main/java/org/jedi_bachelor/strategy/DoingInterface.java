@@ -75,7 +75,7 @@ public class DoingInterface {
         System.out.println("Take a money");
         money = scan.nextInt();
         stateOfPlayer.addMoney(-1*money);
-        list.get(act).getBuildingList().get(act).subsiding(money);
+        list.get(act).getBuildingList()[act].subsiding(money);
     }
 
     private void skipDay() {

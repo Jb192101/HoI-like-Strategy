@@ -2,6 +2,8 @@ package org.jedi_bachelor.strategy.model.buildings;
 
 // It's private commercial organization
 
+import org.jedi_bachelor.strategy.model.buildings.types.Oil;
+
 public class OilRefinerie extends Building implements ITradingOfProduction {
     private final Oil oil;
 
@@ -13,6 +15,10 @@ public class OilRefinerie extends Building implements ITradingOfProduction {
 
         this.currentHealth = 100;
         this.maxHealth = 100;
+
+        this.moneyToBuilding = 10000;
+        this.neededCountOfMachines = 150;
+        this.timeToBuilding = 5;
     }
 
     @Override
